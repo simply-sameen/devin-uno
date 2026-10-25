@@ -4,16 +4,12 @@ Record each meaningful project change during the event, newest first. Update thi
 
 ## Event build log
 
-No project implementation has been recorded yet. Replace this sentence with entries as you build:
+## 2026-10-25T06:45:02+05:30 — Add vercel.json and publish to Vercel
 
-```text
-## <actual timestamp> — <short change title>
-
-- Changed: <feature or files changed>
-- Why: <reason for the change>
-- Validation: <commands or manual checks actually run, with results>
-- Limitations: <known issues or "None identified in these checks">
-```
+- Changed: Added `vercel.json` with explicit Vite build settings (`npm run build`, `dist` output, `npm install`) and an SPA fallback rewrite to `index.html`. Deployed the project to Vercel (`omnipotent`, linked to `simply-sameen/devin-uno`, auto-deploys on push to `main`) and disabled Vercel Authentication (SSO protection) so the demo is publicly reachable.
+- Why: Make the app publicly accessible at https://omnipotent-ten.vercel.app for the demo, and make the build/deploy config explicit since the project's framework detection was unset.
+- Validation: `curl` against https://omnipotent-ten.vercel.app returns 200 with the app HTML; JS bundle (`/assets/index-BvYkExZr.js`, 362 KB) and CSS (33 KB) return 200.
+- Limitations: No environment variables are set on the Vercel project — `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, and `VITE_GEMINI_API_KEY` are unset, so the app runs in its built-in fallback mode (local mesh sync, Gemini key entered via UI). A redeploy is required after setting `VITE_*` vars since they are inlined at build time.
 
 ## Template setup — 10 October 2026
 
