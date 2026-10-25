@@ -4,6 +4,13 @@ Record each meaningful project change during the event, newest first. Update thi
 
 ## Event build log
 
+## 2026-10-25T07:05:00+05:30 — Final submission README, banner, screenshots, env example
+
+- Changed: Rewrote `README.md` for submission (banner, badges, problem/solution, architecture diagram, milestone table, verified run steps, status, screenshots, libraries, measured evaluation, structure, roadmap, team). Added `docs/banner.svg`, `.env.example`, and `screenshots/` (5 captures of the running app).
+- Why: Finalize the project description for judges with only implemented, verified claims.
+- Validation: `npm run build` (tsc + vite) passes with 0 errors; screenshots captured from the running dev server via headless Chrome; banner rendered check via headless Chrome.
+- Limitations: No test suite or linter exists (noted in README); Gemini and Supabase code paths remain unverified without credentials.
+
 ## 2026-10-25T06:45:02+05:30 — Add vercel.json and publish to Vercel
 
 - Changed: Added `vercel.json` with explicit Vite build settings (`npm run build`, `dist` output, `npm install`) and an SPA fallback rewrite to `index.html`. Deployed the project to Vercel (`omnipotent`, linked to `simply-sameen/devin-uno`, auto-deploys on push to `main`) and disabled Vercel Authentication (SSO protection) so the demo is publicly reachable.
